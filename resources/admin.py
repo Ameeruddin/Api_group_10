@@ -136,7 +136,7 @@ class Team_details(Resource):
         data=parser.parse_args()
 
         try:
-            return query(f"""SELECT * FROM group10.teamdetails WHERE sport_name='{data['sport_name']}'""")
+            return query(f"""SELECT * FROM group10.teamdetails WHERE sport_name='{data['sport_name']}' group by team_id""")
         except:
             return {"message":"There was an error connecting to team_details table."},500
     @jwt_required
